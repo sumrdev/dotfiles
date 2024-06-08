@@ -36,13 +36,47 @@ require("lazy").setup({
 			require("config.nvim-cmp")
 		end,
 	},
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    },
+    {
+        'nvimdev/dashboard-nvim',
+        event = 'VimEnter',
+        config = function()
+        require('dashboard').setup {
+          -- config
+          config = {
+              center = {
+                {
+                  icon = '',
+                  icon_hl = 'group',
+                  desc = 'description',
+                  desc_hl = 'group',
+                  key = 'shortcut key in dashboard buffer not keymap !!',
+                  key_hl = 'group',
+                  key_format = ' [%s]', -- `%s` will be substituted with value of `key`
+                  action = '',
+                },
+              },
+              footer = {},
+            }
+        }
+        end,
+        dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    },
 	-- Code snippet engine
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
 	},
     'nvim-telescope/telescope.nvim', tag = '0.1.6',
--- or                              , branch = '0.1.x',
       dependencies = { 'nvim-lua/plenary.nvim' },
      'alexghergh/nvim-tmux-navigation', config = function()
 
@@ -59,5 +93,5 @@ require("lazy").setup({
     vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
     vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
 
-end
+    end
 })

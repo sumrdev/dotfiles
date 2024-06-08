@@ -101,6 +101,12 @@ plugins=(
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+if [ "$TMUX" = "" ]; then tmux; fi
+
+export TMUX_CONF=~/.config/tmux/.tmux.conf
+
+export ZOXIDE_CMD_OVERRIDE=cd
+eval "$(zoxide init zsh)" 
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
