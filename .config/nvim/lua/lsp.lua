@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = { 'pylsp', 'lua_ls', 'rust_analyzer','tsserver','fsautocomplete','volar' },
+    ensure_installed = { 'pylsp', 'lua_ls', 'rust_analyzer','tsserver','fsautocomplete','volar', 'yamlls' },
 })
 
 -- Set different settings for different languages' LSP
@@ -85,5 +85,9 @@ lspconfig.efm.setup ({
 })
 
 lspconfig.volar.setup ({
+    on_attach = on_attach,
+})
+
+lspconfig.yamlls.setup ({
     on_attach = on_attach,
 })
