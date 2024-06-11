@@ -86,6 +86,15 @@ lspconfig.efm.setup ({
 
 lspconfig.volar.setup ({
     on_attach = on_attach,
+    filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+    init_options = {
+        vue = {
+            hybridMode = false,
+        },
+        typescript = {
+            tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+        },
+    },
 })
 
 lspconfig.yamlls.setup ({

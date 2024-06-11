@@ -16,6 +16,7 @@ require("lazy").setup({
     "ellisonleao/gruvbox.nvim",
     --lsp stuff
 	"williamboman/mason.nvim",
+    "nvim-lua/plenary.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
     {
@@ -69,7 +70,11 @@ require("lazy").setup({
             }
         }
         end,
-        dependencies = { {'nvim-tree/nvim-web-devicons'}}
+        dependencies = { {'nvim-tree/nvim-web-devicons'}},
+        {
+            'nvim-lualine/lualine.nvim',
+            dependencies = { 'nvim-tree/nvim-web-devicons' }
+        }
     },
 	-- Code snippet engine
 	{
@@ -77,8 +82,10 @@ require("lazy").setup({
 		version = "v2.*",
 	},
     'nvim-telescope/telescope.nvim', tag = '0.1.6',
+
       dependencies = { 'nvim-lua/plenary.nvim' },
      'alexghergh/nvim-tmux-navigation', config = function()
+
 
     local nvim_tmux_nav = require('nvim-tmux-navigation')
 

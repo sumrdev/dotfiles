@@ -103,8 +103,6 @@ plugins=(
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 if [ "$TMUX" = "" ]; then tmux; fi
 
-export TMUX_CONF=~/.config/tmux/.tmux.conf
-
 export ZOXIDE_CMD_OVERRIDE=cd
 eval "$(zoxide init zsh)" 
 
