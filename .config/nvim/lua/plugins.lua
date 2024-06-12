@@ -38,6 +38,13 @@ require("lazy").setup({
 		end,
 	},
     {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equalent to setup({}) function
+    },
+    {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
         event = "VeryLazy",
@@ -73,7 +80,10 @@ require("lazy").setup({
         dependencies = { {'nvim-tree/nvim-web-devicons'}},
         {
             'nvim-lualine/lualine.nvim',
-            dependencies = { 'nvim-tree/nvim-web-devicons' }
+            dependencies = { 'nvim-tree/nvim-web-devicons' },
+            config = function()
+                require("config.lualine")
+            end,
         }
     },
 	-- Code snippet engine
@@ -81,9 +91,15 @@ require("lazy").setup({
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
 	},
+    {
     'nvim-telescope/telescope.nvim', tag = '0.1.6',
+     dependencies = { 'nvim-lua/plenary.nvim' },
+		config = function()
+			require("config.telescope")
+		end,
+    },
+    {
 
-      dependencies = { 'nvim-lua/plenary.nvim' },
      'alexghergh/nvim-tmux-navigation', config = function()
 
 
@@ -101,4 +117,5 @@ require("lazy").setup({
     vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
 
     end
+    },
 })
