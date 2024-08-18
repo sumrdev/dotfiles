@@ -101,8 +101,8 @@ plugins=(
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-if [ "$TMUX" = "" ]; then tmux; fi
 
+export VPN=~/hacking/htb/vpn
 export ZOXIDE_CMD_OVERRIDE=cd
 eval "$(zoxide init zsh)" 
 
@@ -114,3 +114,4 @@ fi
 eval "$(zoxide init zsh)"
 
 source $ZSH/oh-my-zsh.sh
+
